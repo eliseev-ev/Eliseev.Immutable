@@ -11,5 +11,7 @@ namespace Eliseev.Immutable.Tests.Samples
         public Sample InnerSample { get; set; }
 
         public SampleRecord Record { get; set; }
+
+        public List<Sample> Samples { get; set;}
     }
 }

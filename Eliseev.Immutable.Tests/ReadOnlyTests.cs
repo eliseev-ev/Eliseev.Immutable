@@ -48,7 +48,10 @@ namespace Eliseev.Immutable.Tests
             Assert.That(stringValueLength, Is.EqualTo(sample.StringValue.Length));
 
             var record = readonlySample.GetRefValue(x => x.Record);
-            Assert.That(record, Is.TypeOf<ReadOnly<Sample>>());
+            Assert.That(record, Is.TypeOf<ReadOnly<SampleRecord>>());
+
+            var list = readonlySample.GetRefValue(x => x.Samples);
+            Assert.That(record, Is.TypeOf<ReadOnly<List<Sample>>>());
         }
     }
 }

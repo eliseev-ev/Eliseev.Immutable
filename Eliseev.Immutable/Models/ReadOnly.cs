@@ -17,27 +17,27 @@ namespace Eliseev.Immutable.Models
             return source == null ? null : new ReadOnly<TValue>(source);
         }
 
-        public string GetValue(Func<T, string> selector)
+        public string GetValue(Expression<Func<T, string>> selector)
         {
             return InternalGetValue(selector);
         }
 
-        public TValue GetValue<TValue>(Func<T, TValue> selector)
+        public TValue GetValue<TValue>(Expression<Func<T, TValue>> selector)
             where TValue : struct
         {
             return InternalGetValue(selector);
         }
 
-        public ReadOnly<TValue> GetRefValue<TValue>(Func<T, TValue> selector)
+        public ReadOnly<TValue> GetRefValue<TValue>(Expression<Func<T, TValue>> selector)
             where TValue : class
         {
             var result = InternalGetValue(selector);
             return Create(result);
         }
 
-        private TValue InternalGetValue<TValue>(Func<T, TValue> selector)
+        private TValue InternalGetValue<TValue>(Expression<Func<T, TValue>> selector)
         {
-            return selector.Invoke(value);
+            return selector.Compile().Invoke(value);
         }
 
         #region override base
