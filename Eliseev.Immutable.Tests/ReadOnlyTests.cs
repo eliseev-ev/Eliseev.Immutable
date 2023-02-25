@@ -1,4 +1,3 @@
-using Eliseev.Immutable.Models;
 using Eliseev.Immutable.Tests.Samples;
 
 namespace Eliseev.Immutable.Tests
@@ -51,7 +50,7 @@ namespace Eliseev.Immutable.Tests
             Assert.That(record, Is.TypeOf<ReadOnly<SampleRecord>>());
 
             var list = readonlySample.GetRefValue(x => x.Samples);
-            Assert.That(record, Is.TypeOf<ReadOnly<List<Sample>>>());
+            Assert.That(list, Is.TypeOf<ReadOnly<List<Sample>>>());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Eliseev.Immutable.Models
+namespace Eliseev.Immutable
 {
     public class ReadOnly<T>
     {
