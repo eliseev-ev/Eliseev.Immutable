@@ -3,7 +3,7 @@ using Eliseev.Immutable.Tests.Samples;
 
 namespace Eliseev.Immutable.Tests
 {
-    public class Tests
+    public class ReadOnlyTests
     {
 
         private Sample sample;

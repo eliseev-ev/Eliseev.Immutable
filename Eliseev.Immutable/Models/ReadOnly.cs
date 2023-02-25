@@ -6,11 +6,7 @@ namespace Eliseev.Immutable.Models
     {
         private readonly T value;
 
-        /// <summary>
-        /// dasd.
-        /// </summary>
-        /// <param name="value">das.</param>
-        public ReadOnly(T value)
+        internal ReadOnly(T value)
         {
             this.value = value;
         }
@@ -44,6 +40,7 @@ namespace Eliseev.Immutable.Models
             return selector.Invoke(value);
         }
 
+        #region override base
         public override string ToString()
         {
             return value.ToString();
@@ -58,5 +55,6 @@ namespace Eliseev.Immutable.Models
         {
             return value.GetHashCode();
         }
+        #endregion
     }
 }
