@@ -22,7 +22,8 @@ namespace Eliseev.Immutable.Tests
                 Record = new SampleRecord
                 {
                     StringValue = "hello",
-                }
+                },
+                Samples = new(0),
             };
         }
 
@@ -51,6 +52,9 @@ namespace Eliseev.Immutable.Tests
 
             var list = readonlySample.GetRefValue(x => x.Samples);
             Assert.That(list, Is.TypeOf<ReadOnly<List<Sample>>>());
+
+            var nullRef = list.GetRefValue(x => x.FirstOrDefault());
+            Assert.Null(nullRef);
         }
     }
 }
